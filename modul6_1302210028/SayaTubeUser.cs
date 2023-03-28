@@ -15,6 +15,8 @@ namespace modul6_1302210028
 
         public SayaTubeUser(string Username) 
         {
+            // Prekondisi 1 : Username memiliki panjang maksimal 100 karakter dan tidak berupa null.
+            Debug.Assert(Username != null && Username.Length <= 100, "Username null atau lebih dari 100 karakter");
             this.Username = Username;
             this.uploadedVideos= new List<SayaTubeVideo>();
         }
@@ -31,6 +33,7 @@ namespace modul6_1302210028
 
         public void AddVideo(SayaTubeVideo video)
         {
+            Debug.Assert(video != null && video.GetPlayCount() != 2147483647, "Video null atau playCount melebihi integer maximum");
             uploadedVideos.Add(video);
         }
 
